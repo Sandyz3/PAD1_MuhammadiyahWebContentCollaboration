@@ -22,47 +22,48 @@
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7">
               <h3><strong>Sign Up</strong></h3>
-              <form action="#" method="post">
+              <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
+              @csrf
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" placeholder="Username" id="username">
+                    <input type="text" class="form-control" placeholder="Username" id="username" name="username">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="occupation">Occupation</label>
-                    <input type="password" class="form-control" placeholder="Occupation" id="occupation">
+                    <label for="occupation">Pekerjaan</label>
+                    <input type="text" class="form-control" placeholder="Occupation" id="occupation" name="pekerjaan">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="username">Password</label>
-                    <input type="text" class="form-control" placeholder="Password" id="password">
+                    <input type="password" class="form-control" placeholder="Password" id="password" name="password">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" placeholder="Address" id="address">
+                    <label for="address">Alamat</label>
+                    <input type="text" class="form-control" placeholder="Address" id="address" name="alamat">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="membership">Membership Number</label>
-                    <input type="text" class="form-control" placeholder="Membership Number" id="membership">
+                    <label for="membership">Nomor Anggota</label>
+                    <input type="text" class="form-control" placeholder="Membership Number" id="membership" name="nomor_keanggotaan">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="regional">Regional Branch</label>
-                    <input type="text" class="form-control" placeholder="Regional Branch" id="regional">
+                    <label for="regional">Cabang</label>
+                    <input type="text" class="form-control" placeholder="Regional Branch" id="regional" name="cabang">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="place">Place of Birth</label>
-                    <input type="text" class="form-control" placeholder="Place of Birth" id="place">
+                    <label for="place">Tempat Lahir</label>
+                    <input type="text" class="form-control" placeholder="Place of Birth" id="place" name="tempat_lahir">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="area">Area</label>
-                    <input type="text" class="form-control" placeholder="Area" id="Area">
+                    <label for="area">Wilayah</label>
+                    <input type="text" class="form-control" placeholder="Area" id="Area" name="email" name="wilayah">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="date">Date of Birth</label>
-                    <input type="date" class="form-control" placeholder="Date of Birth" id="date">
+                    <label for="date">Tanggal Lahir</label>
+                    <input type="date" class="form-control" placeholder="Date of Birth" id="date" name="tanngal_lahir">
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="region">Region</label>
-                    <input type="text" class="form-control" placeholder="Region" id="region">
+                    <label for="region">Daerah</label>
+                    <input type="text" class="form-control" placeholder="Region" id="region" name="daerah">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="gender">Gender</label>
@@ -77,12 +78,23 @@
                       </label>
                     </div>
                   </div>
-                  <div class="form-group col-md-6">
+                  <!-- <div class="form-group col-md-6">
                     <label for="photo">Photo</label>
                     <input type="file" class="form-control" placeholder="Upload Photo" id="photo">
-                  </div>
+                  </div> -->
+
+                  <div class="mb-3 row">
+                        <label for="photo" class="col-md-4 col-form-label text-md-end text-start">Photo</label>
+                        <div class="col-md-6">
+                          <input type="file" class="form-control @error('photo') is-invalid @enderror" id="photo" name="foto_kta" value="{{ old('photo') }}">
+                            @if ($errors->has('photo'))
+                                <span class="text-danger">{{ $errors->first('photo') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
                 </div>
-                <input type="submit" value="Sign Up" class="btn btn-block btn-primary">
+                <input type="submit" value="Register" class="btn btn-block btn-primary">
               </form>
               <p class="text-center">Already Account? <a href="sign_in">Sign In</a></p>
             </div>
