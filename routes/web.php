@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('/homepage', function () {
     return view('user/homepage');
 });
+Route::get('/homepage2', function () {
+    return view('user/homepage');
+});
 Route::get('/sign_in', function () {
     return view('user/sign_in');
 });

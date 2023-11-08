@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    @include('user.header1')
+    @include('user.header2')
         @yield('content')
     @include('user.footer')
 </body>
