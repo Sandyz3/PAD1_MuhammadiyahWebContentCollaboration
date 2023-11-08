@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage; 
 use Illuminate\Support\Facades\File;
-
-
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class loginregis extends Controller
 {
     public  function __construct()
     {
-        $this->middleware('guest')->except(['logout', 'homepage']);
+        $this->middleware('web')->except(['logout', 'homepage']);
     }
 
     public function register()
@@ -26,10 +26,12 @@ class loginregis extends Controller
     }
     public function Store(Request $request)
     {
-        $request->validate([
+        // dd($request->all()); 
+
+        $rule = [
             'pekerjaan' => 'required',
             'username' => 'required|username|unique:users,username',
-            'password' => 'required|min:4|confirmed',
+            'password' => 'required|min:4',
             'foto_kta' => 'image|nullable|max:1999',
             'alamat' => 'required',
             'nomor_keanggotaan' => 'required',
@@ -38,7 +40,11 @@ class loginregis extends Controller
             'tempat_lahir' => 'required',
             'wilayah' => 'required',
             'tanggal_lahir' => 'required',
-        ]);
+        ];
+        $validator = Validator::make($request->all(),$rule);
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
 
         $path = null;
 
@@ -69,6 +75,7 @@ class loginregis extends Controller
             $request->session()->regenerate();
             return redirect()->route('homepage');
         }
+
         
         return back()->withErrors(['username' => 'The provided credentials do not match our records'])->onlyInput('username');
     }
@@ -81,12 +88,13 @@ class loginregis extends Controller
 
    public function authenticate(Request $request)
    {
+    // dd($request->all()); 
             $credentials = $request->validate([
                 'username' => 'required',
                 'password' => 'required',
             ]);
     
-
+            // dd(Auth::attempt($credentials)); 
          if(Auth::attempt($credentials)){
               $request->session()->regenerate();
               return redirect()->route('homepage');

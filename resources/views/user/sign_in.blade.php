@@ -24,7 +24,7 @@
               @csrf
                 <div class="form-group first">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" placeholder="Username" id="username" name="username">
+                  <input type="text" class="form-control" placeholder="username" id="username" name="username">
                   @if ($errors->has('username'))
                                 <span class="text-danger">{{ $errors->first('username') }}</span>
                             @endif
@@ -45,7 +45,7 @@
                   <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
                 </div>
 
-                <input type="submit" value="Sign In" class="btn btn-block btn-primary">
+                <input type="submit" value="login" class="btn btn-block btn-primary">
               </form>
               <p class="text-center">Not a member? <a href="sign_up">Sign Up</a></p>
             </div>

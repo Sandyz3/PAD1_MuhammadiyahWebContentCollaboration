@@ -19,48 +19,48 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/homepage', function () {
-//     return view('user/homepage');
-// });
-// Route::get('/sign_in', function () {
-//     return view('user/sign_in');
-// });
-// Route::get('/sign_up', function () {
-//     return view('user/sign_up');
-// });
-// Route::get('/index', function () {
-//     return view('user/index');
-// });
-// Route::get('/kajian', function () {
-//     return view('user/kajian');
-// });
-// Route::get('/kajian', function () {
-//     return view('user/kajian');
-// });
-// Route::get('/about', function () {
-//     return view('user/about');
-// });
-// Route::get('/about', function () {
-//     return view('user/about');
-// });
-// Route::get('/dashboard', function () {
-//     return view('admin/dashboard');
-// });
-// Route::get('/data_kajian', function () {
-//     return view('admin/data_kajian');
-// });
-// Route::get('/data_user', function () {
-//     return view('admin/data_user');
-// });
-// Route::get('/history_login', function () {
-//     return view('admin/history_login');
-// });
-// Route::get('/history_download', function () {
-//     return view('admin/history_download');
-// });
-// Route::get('/history_upload', function () {
-//     return view('admin/history_upload');
-// });
+Route::get('/homepage', function () {
+    return view('user/homepage');
+});
+Route::get('/sign_in', function () {
+    return view('user/sign_in');
+});
+Route::get('/sign_up', function () {
+    return view('user/sign_up');
+});
+Route::get('/index', function () {
+    return view('user/index');
+});
+Route::get('/kajian', function () {
+    return view('user/kajian');
+});
+Route::get('/kajian', function () {
+    return view('user/kajian');
+});
+Route::get('/about', function () {
+    return view('user/about');
+});
+Route::get('/about', function () {
+    return view('user/about');
+});
+Route::get('/dashboard', function () {
+    return view('admin/dashboard');
+});
+Route::get('/data_kajian', function () {
+    return view('admin/data_kajian');
+});
+Route::get('/data_user', function () {
+    return view('admin/data_user');
+});
+Route::get('/history_login', function () {
+    return view('admin/history_login');
+});
+Route::get('/history_download', function () {
+    return view('admin/history_download');
+});
+Route::get('/history_upload', function () {
+    return view('admin/history_upload');
+});
 
 
 Route::controller(loginregis::class)->group(function () {
