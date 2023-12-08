@@ -203,13 +203,14 @@ class KajianController extends Controller
     public function downloadKajian($kajianId)
     {
         // Logika unduhan kajian
-
+        
         // Catat log download ke dalam history_downloads
         $historyDownload = new HistoryDownload();
         $historyDownload->user_id = auth()->id(); // ID pengguna yang sedang login
         $historyDownload->kajian_id = $kajianId; // ID kajian yang diunduh
         $historyDownload->downloaded_at = now(); // Waktu unduh
         $historyDownload->save();
+   
 
         // Logika unduhan kajian lainnya dan pengalihan ke file unduhan
 

@@ -61,5 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Kajian::class, 'id_user'); // Sesuaikan 'user_id' dengan nama kolom foreign key di tabel 'kajian'
     }
+    public function dwnldhistory()
+    {
+        return $this->belongsToMany(HistoryDownload::class, 'history_downloads', 'user_id', 'kajian_id')->withTimestamps();
+    }
 
 }

@@ -18,7 +18,7 @@ class loginregis extends Controller
 {
     public  function __construct()
     {
-        $this->middleware('web')->except(['logout', 'homepage']);
+        $this->middleware('guest')->except(['logout', 'homepage']);
     }
 
     public function register()
@@ -32,7 +32,7 @@ class loginregis extends Controller
         $rule = [
             'pekerjaan' => 'required',
             'nama' => 'required',
-            'username' => 'required|username|unique:users,username',
+            'username' => 'required',
             'password' => 'required|min:4',
             'foto_kta' => 'image|nullable|max:1999',
             'foto_profile' => 'image|nullable|max:1999',

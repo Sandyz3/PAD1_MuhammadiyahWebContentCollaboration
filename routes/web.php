@@ -4,6 +4,7 @@ use App\Http\Controllers\admincon;
 use App\Http\Controllers\loginregis;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KajianController;
+use App\Http\Controllers\usercon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -158,6 +159,11 @@ Route::controller(loginregis::class)->group(function () {
     Route::get('/homepage', 'homepage')->name('homepage');
     Route::get('/adminhome', 'adminhome')->name('adminhome');
     Route::post('/logout', 'logout')->name('logout');
+});
+
+Route::controller(usercon::class)->group(function () {
+    Route::get('/kajians', 'vw_kajian')->name('vw_kajian');
+    Route::get('/about', 'vw_about')->name('vw_about');
 });
 
 Route::controller(KajianController::class)->group(function () {

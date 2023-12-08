@@ -113,111 +113,30 @@
         <div class="title mb-3 mt-5">Kajian Terkini</div>
         <div class="row">
             <div class="col-md-9 order-md-1">
-                <div class="row mb-3 ">
+                @foreach ($latestKajians as $kajian)
+                <div class="row mb-3">
                     <div class="col-md-3">
                         <img src="/assets/img/kajian/kajian.jpg" alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9">
-                        <div class="title mb-3 mt-2">Pengajian BPH, Dosen dan Pegawai Universitas Muhammadiyah Kudus
-                        </div>
+                        <div class="title mb-3 mt-2">{{ $kajian->judul_kajian }}</div>
                         <ul class="list-unstyled">
-                            <li>Narasumber : Prof. Dr. H. M. Dailamy S.P</li>
-                            <li>Tema : “Rahasia dibalik kemampuan Muhammadiyah dapat bertahan sampai lebih dari satu
-                                abad”</li>
+                            <li>Narasumber : {{ $kajian->pemateri }}</li>
+                            <li>Tema : “{{ $kajian->deskripsi_kajian }}”</li>
                         </ul>
                         <div class="d-flex mt-3">
-                            <div class="button-kajian text-light me-3">
+                            <a href="{{ route('kajian', ['id' => $kajian->id]) }}" class="button-kajian text-light me-3"
+                                style="text-decoration: none;">
                                 View More
-                            </div>
-                            <p>Monday | December 19, 2022 | By Aisa selvira</p>
-                        </div>
-                    </div>
-                </div>
+                            </a>
 
-                <div class="row mb-3 mt-5">
-                    <div class="col-md-3">
-                        <img src="/assets/img/kajian/kajian.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="title mb-3 mt-2">Pengajian BPH, Dosen dan Pegawai Universitas Muhammadiyah Kudus
-                        </div>
-                        <ul class="list-unstyled">
-                            <li>Narasumber : Prof. Dr. H. M. Dailamy S.P</li>
-                            <li>Tema : “Rahasia dibalik kemampuan Muhammadiyah dapat bertahan sampai lebih dari satu
-                                abad”</li>
-                        </ul>
-                        <div class="d-flex mt-3">
-                            <div class="button-kajian text-light me-3">
-                                View More
-                            </div>
-                            <p>Monday | December 19, 2022 | By Aisa selvira</p>
+                            <p>{{ $kajian->created_at->format('l | F d, Y') }} | By {{ $kajian->user->username }}</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="row mb-3 mt-5">
-                    <div class="col-md-3">
-                        <img src="/assets/img/kajian/kajian.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="title mb-3 mt-2">Pengajian BPH, Dosen dan Pegawai Universitas Muhammadiyah Kudus
-                        </div>
-                        <ul class="list-unstyled">
-                            <li>Narasumber : Prof. Dr. H. M. Dailamy S.P</li>
-                            <li>Tema : “Rahasia dibalik kemampuan Muhammadiyah dapat bertahan sampai lebih dari satu
-                                abad”</li>
-                        </ul>
-                        <div class="d-flex mt-3">
-                            <div class="button-kajian text-light me-3">
-                                View More
-                            </div>
-                            <p>Monday | December 19, 2022 | By Aisa selvira</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mb-3 mt-5">
-                    <div class="col-md-3">
-                        <img src="/assets/img/kajian/kajian.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="title mb-3 mt-2">Pengajian BPH, Dosen dan Pegawai Universitas Muhammadiyah Kudus
-                        </div>
-                        <ul class="list-unstyled">
-                            <li>Narasumber : Prof. Dr. H. M. Dailamy S.P</li>
-                            <li>Tema : “Rahasia dibalik kemampuan Muhammadiyah dapat bertahan sampai lebih dari satu
-                                abad”</li>
-                        </ul>
-                        <div class="d-flex mt-3">
-                            <div class="button-kajian text-light me-3">
-                                View More
-                            </div>
-                            <p>Monday | December 19, 2022 | By Aisa selvira</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mb-3 mt-5">
-                    <div class="col-md-3">
-                        <img src="/assets/img/kajian/kajian.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="title mb-3 mt-2">Pengajian BPH, Dosen dan Pegawai Universitas Muhammadiyah Kudus
-                        </div>
-                        <ul class="list-unstyled">
-                            <li>Narasumber : Prof. Dr. H. M. Dailamy S.P</li>
-                            <li>Tema : “Rahasia dibalik kemampuan Muhammadiyah dapat bertahan sampai lebih dari satu
-                                abad”</li>
-                        </ul>
-                        <div class="d-flex mt-3">
-                            <div class="button-kajian text-light me-3">
-                                View More
-                            </div>
-                            <p>Monday | December 19, 2022 | By Aisa selvira</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
+
 
             <div class="col-md-3 order-md-2">
                 <div class="card mt-5">

@@ -28,6 +28,8 @@ class admincon extends Controller
 
     
 
+    
+
     public function data_user(){
 
         $userdata = User::all(); // Contoh pengambilan data dari model Kajian
@@ -65,21 +67,6 @@ class admincon extends Controller
 
     public function showHistoryDownload()
         {
-            // // Logika unduhan kajian
-
-            // // Catat log download ke dalam history_downloads
-            // $historyDownload = new HistoryDownload();
-            // $historyDownload->user_id = auth()->id(); // ID pengguna yang sedang login
-            // $historyDownload->kajian_id = $kajianId; // ID kajian yang diunduh
-            // $historyDownload->downloaded_at = now(); // Waktu unduh
-            // $historyDownload->save();
-
-            // // Logika unduhan kajian lainnya dan pengalihan ke file unduhan
-
-            // // Ambil data history downloads setelah pencatatan
-            // $historyDownloads = HistoryDownload::with(['user', 'kajian'])->get();
-
-            // return view('admin.history_download', ['historyDownloads' => $historyDownloads]);
             $historyDownloads = HistoryDownload::with(['user', 'kajian'])->get();
 
             return view('admin.history_download', ['historyDownloads' => $historyDownloads]);

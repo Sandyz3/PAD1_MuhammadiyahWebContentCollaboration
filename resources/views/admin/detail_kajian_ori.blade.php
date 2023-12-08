@@ -13,7 +13,8 @@
                                     <div class="account-detail row">
                                         <div class="col-md-2">
                                             @if($kajian->user)
-                                            <img src="{{asset('storage/' .$kajian->user->foto_profile) }}" alt="Foto ga ketemu">
+                                            <img src="{{ asset('storage/' . $kajian->user->foto_profile) }}" alt="Foto ga ketemu" style="border-radius: 50%; width: 70px; height: 70px;">
+
                                             @else
                                             <img src="/assets/img/account-profile.png" alt="Foto Profil Default">
                                             @endif
