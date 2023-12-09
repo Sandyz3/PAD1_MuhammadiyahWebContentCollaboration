@@ -90,8 +90,14 @@ Route::get('/', function () {
 // Route::get('/index', function () {
 //     return view('user/index');
 // });
-// Route::get('/kajian', function () {
-//     return view('user/kajian');
+// Route::get('/footer', function () {
+//     return view('user/footer');
+// });
+// Route::get('/layout', function () {
+//     return view('user/layout');
+// });
+// Route::get('/layout2', function () {
+//     return view('user/layout2');
 // });
 // Route::get('/kajian', function () {
 //     return view('user/kajian');
@@ -150,6 +156,57 @@ Route::get('/', function () {
 // Route::get('/header1', function () {
 //     return view('user/header1');
 // });
+// Route::get('/header2', function () {
+//     return view('user/header2');
+// });
+// Route::get('/homepage', function () {
+//     return view('user/homepage');
+// });
+// Route::get('/homepage2', function () {
+//     return view('user/homepage2');
+// });
+// Route::get('/index', function () {
+//     return view('user/index');
+// });
+// Route::get('/kajian', function () {
+//     return view('user/kajian');
+// });
+// Route::get('/about', function () {
+//     return view('user/about');
+// });
+// Route::get('/profile_user', function () {
+//     return view('admin/profile_user');
+// });
+// Route::get('/carousel', function () {
+//     return view('user/carousel');
+// });
+// Route::get('/kajian2', function () {
+//     return view('user/kajian2');
+// });
+// Route::get('/news', function () {
+//     return view('user/news');
+// });
+// Route::get('/profile_user', function () {
+//     return view('user/profile_user');
+// });
+// Route::get('/form_create_user', function () {
+//     return view('user/form_create_user');
+// });
+// Route::get('/detail_kajian_ori_user', function () {
+//     return view('user/detail_kajian_ori_user');
+// });
+// Route::get('/detail_kajian_nv_user', function () {
+//     return view('user/detail_kajian_nv_user');
+// });
+// Route::get('/detail_kajian_upload_user', function () {
+//     return view('user/detail_kajian_upload_user');
+// });
+// Route::get('/form_edit_user', function () {
+//     return view('user/form_edit_user');
+// });
+// Route::get('/form_upload_user', function () {
+//     return view('user/form_upload_user');
+// });
 
 Route::controller(loginregis::class)->group(function () {
     Route::get('/sign_up', 'register')->name('register');
@@ -175,7 +232,6 @@ Route::controller(KajianController::class)->group(function () {
     Route::get('/edit_kajian/{id}', 'edit_kajian')->name('edit_kajian');
     Route::post('/update_kajian/{id}', 'update_kajian')->name('update_kajian');
 });
-
 
 
 Route::controller(admincon::class)->group(function () {
